@@ -1,0 +1,64 @@
+{
+  "id": "0912314f-cef8-404c-abbc-9ed756fce64a",
+  "version": "2.0",
+  "name": "FACEBOOK",
+  "url": "https://web.facebook.com",
+  "tests": [{
+    "id": "9d206e01-55ae-4ff0-a79d-47dd3954e52f",
+    "name": "invalid password",
+    "commands": [{
+      "id": "c1b204ec-287f-4abd-919d-1d1400eb38bf",
+      "comment": "",
+      "command": "open",
+      "target": "/?_rdc=1&_rdr",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1de18d65-9e01-4b23-9d19-e6b1a94a048f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1053x590",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98dfcadc-70fd-4cbb-9e86-710f9bdc9d36",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='u_0_6_/+']/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "samuelemeruwa@gmail.com"
+    }, {
+      "id": "9de4c591-7d17-42e9-bb06-64ea669c9162",
+      "comment": "",
+      "command": "click",
+      "target": "id=u_0_9_PK",
+      "targets": [
+        ["id=u_0_9_PK", "id"],
+        ["name=login", "name"],
+        ["css=#u_0_9_PK", "css:finder"],
+        ["xpath=//button[@id='u_0_9_PK']", "xpath:attributes"],
+        ["xpath=//form[@id='u_0_6_/+']/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "a95ca275-f191-4bcc-aacf-5494833b6829",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9d206e01-55ae-4ff0-a79d-47dd3954e52f"]
+  }],
+  "urls": ["https://web.facebook.com/"],
+  "plugins": []
+}
