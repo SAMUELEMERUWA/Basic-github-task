@@ -5,11 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-/**
- *
- *
- *
- */
 
 
 public class SeleniumWebSignuptest {
@@ -18,19 +13,6 @@ public class SeleniumWebSignuptest {
     private WebDriver driver;
 
     @Test(priority = 0)
-    public void negativesignup() throws InterruptedException {
-        //Test3 verify that user cannot signup with username less than 3 characters
-            //5. input your username on the username field
-            driver.findElement(By.id("user_username")).sendKeys("ss");
-            //6. locate the email address field and input your email on the email field
-            driver.findElement(By.id("user_email")).sendKeys("bl9olllonttoasaKOOL1@gmail.com");
-            //7. locate your password field and input your password on the password field
-            driver.findElement(By.id("user_password")).sendKeys("Omobaba1");
-            //8. click on the signup button
-            driver.findElement(By.id("submit")).click();
-            Thread.sleep(5000);
-}
-    @Test(priority = 1)
     public void positivesignup() throws InterruptedException {
         //Locate where the ChromeDriver is
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
@@ -52,62 +34,38 @@ public class SeleniumWebSignuptest {
         driver.findElement(By.xpath("/html/body/div[2]/div/a[2]")).click();
         Thread.sleep(5000);
     }
-
-    @BeforeTest
-    public void start() throws InterruptedException {
-        //Locate where the ChromeDriver is
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        //1.open your chrome browser
-        driver = new ChromeDriver();
-        //2. Input your selenium Demo page URL (https://selenium-blog.herokuapp.com/)
-        driver.get("https://selenium-blog.herokuapp.com");
-        //Test1 verify the user input the right url and his on the right webpage
-        if(driver.getCurrentUrl().contains("https://selenium-blog.herokuapp.com"))
-            //pass
-            System.out.println("correct webpage");
-        else
-            //fail
-            System.out.println("wrong webpage");
+    @Test(priority = 0)
+    public void negativesignup() throws InterruptedException {
+        //Test3 verify that user cannot signup with username less than 3 characters
+        //3a. input your username on the username field
+        driver.findElement(By.id("user_username")).sendKeys("ss");
+        //3b. locate the email address field and input your email on the email field
+        driver.findElement(By.id("user_email")).sendKeys("bl9olllonttoasaKOOL1@gmail.com");
+        //3c. locate your password field and input your password on the password field
+        driver.findElement(By.id("user_password")).sendKeys("Omobaba1");
+        //3d. click on the signup button
+        driver.findElement(By.id("submit")).click();
         Thread.sleep(5000);
-        //3. Maximize the browser
-        driver.manage().window().maximize();
-        //4. click on signup button to open the signup page
-        driver.findElement(By.xpath("/html/body/div[2]/div/a[2]")).click();
-        Thread.sleep(5000);
-    }
-    @Test(priority = 2)
-    public void clickmeaghan() throws InterruptedException {
-        //9. click on meaghan item on the list page
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/div/div/li[1]/a")).click();
         //test2. verify that when user clicks on the signup button, the user is directed to the signup page
         String expectedurl = "https://selenium-blog.herokuapp.com/signup";
         String actualurl = driver.getCurrentUrl();
-                if(actualurl.contains(expectedurl))
-                    //pass
-                    System.out.println("Correct Webpage");
-                else
-                    //fail
-                    System.out.println("Wrong Webpage");
+        if(actualurl.contains(expectedurl))
+            //pass
+            System.out.println("Correct Webpage");
+        else
+            //fail
+            System.out.println("Wrong Webpage");
         Thread.sleep(5000);
+}
+
+    @Test(priority = 1)
+    public void meaghan() throws InterruptedException {
+        //9. click on meaghan item on the list page
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/div/div/li[1]/a")).click();
+
     }
 
-    @AfterTest
-    public void closeBrowser() throws InterruptedException {
-        //12. Quit the browser
-        driver.quit();
-        //Test3 verify that user cannot signup with username less than 3 characters
-        //5. input your username on the username field
-        driver.findElement(By.id("user_username")).sendKeys("samksis");
-        //6. locate the email address field and input your email on the email field
-        driver.findElement(By.id("user_email")).sendKeys("gbajaaKOOL1@gmail.com");
-        //7. locate your password field and input your password on the password field
-        driver.findElement(By.id("user_password")).sendKeys("Omobaba1");
-        //8. click on the signup button
-        driver.findElement(By.id("submit")).click();
-        Thread.sleep(5000);
-    }
-
-    @Test (priority = 4)
+    @Test (priority = 2)
     public void verifyitem() throws InterruptedException {
             //10. search for an item (using Python with selenium) and confirm if it is present
             driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div/div[1]")).click();
@@ -123,7 +81,7 @@ public class SeleniumWebSignuptest {
             Thread.sleep(5000);
         }
 
-    @Test(priority = 4)
+    @Test(priority = 3)
     public void logoutsucessfully() throws InterruptedException {
             //11. click on logout
                 //Test 10 verify that when the user logout he or she is directed back to the home page
